@@ -1,0 +1,82 @@
+[
+  {
+    "temp": 19.2,
+    "minTemp": 17,
+    "maxTemp": 25.9,
+    "weatherStateName": "fast wind",
+    "city": "Ho Chi Minh",
+    "Region": "Vietnam"
+  },
+  {
+    "temp": 18.2,
+    "minTemp": 14,
+    "maxTemp": 20.2,
+    "weatherStateName": "cloudy",
+    "city": "Da Lat",
+    "Region": "Vietnam"
+  },
+  {
+    "temp": 21.2,
+    "minTemp": 21.3,
+    "maxTemp": 27.7,
+    "weatherStateName": "showers",
+    "city": "Da Nang",
+    "Region": "Vietnam"
+  },
+  {
+    "temp": 20.8,
+    "minTemp": 15,
+    "maxTemp": 22.9,
+    "weatherStateName": "mid rain",
+    "city": "Lang Son",
+    "Region": "Vietnam"
+  },
+  {
+    "temp": 25,
+    "minTemp": 22.3,
+    "maxTemp": 27.7,
+    "weatherStateName": "clear",
+    "city": "Tay Ninh",
+    "Region": "Vietnam"
+  },
+  {
+    "temp": 21.3,
+    "minTemp": 20.5,
+    "maxTemp": 27.2,
+    "weatherStateName": "clear",
+    "city": "Nha Trang",
+    "Region": "Vietnam"
+  },
+  {
+    "temp": 23.2,
+    "minTemp": 22.3,
+    "maxTemp": 28.9,
+    "weatherStateName": "clear",
+    "city": "Phu Yen",
+    "Region": "Vietnam"
+  },
+  {
+    "temp": 21.4,
+    "minTemp": 19.2,
+    "maxTemp": 26.4,
+    "weatherStateName": "clear",
+    "city": "Bien Hoa",
+    "Region": "Vietnam"
+  },
+  {
+    "temp": 19.9,
+    "minTemp": 18,
+    "maxTemp": 23.2,
+    "weatherStateName": "cloudy",
+    "city": "Hue",
+    "Region": "Vietnam"
+  },
+  {
+    "temp": 21.3,
+    "minTemp": 18,
+    "maxTemp": 24.9,
+    "weatherStateName": "clear",
+    "city": "Hai Phong",
+    "Region": "Vietnam"
+  }
+]
