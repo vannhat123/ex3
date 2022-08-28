@@ -1,7 +1,11 @@
 import 'package:excersie2/const/consts.dart';
-import 'package:excersie2/screens/detail/model/get_data_weather_forecast.dart';
-import 'package:excersie2/screens/detail/model/models.dart';
+import 'package:excersie2/screens/home/model/models.dart';
+import 'package:excersie2/screens/detail/view/detail_screen.dart';
+import 'package:excersie2/screens/home/view/form_weather_forecast.dart';
+import 'package:excersie2/screens/search/view/search_screen.dart';
 import 'package:flutter/material.dart';
+
+import 'custom_painter_bottom.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -42,16 +46,16 @@ class _HomeScreenState extends State<HomeScreen> {
                         style: TextStyle(color: Colors.white, fontSize: 20),
                       ),
                       const Text(
-                        "19 ◦",
+                        "19°",
                         style: TextStyle(color: Colors.white, fontSize: 80),
                       ),
                       const Text(
                         "Mostly Clear",
-                        style: TextStyle(color: Colors.white, fontSize: 14),
+                        style: TextStyle(color: Colors.white60, fontSize: 14),
                       ),
                       const Text(
-                        "H:24  L:18",
-                        style: TextStyle(color: Colors.white, fontSize: 14),
+                        "H:24°  L:18°",
+                        style: TextStyle(color: Colors.white, fontSize: 16),
                       ),
                     ],
                   ),
@@ -71,13 +75,18 @@ class _HomeScreenState extends State<HomeScreen> {
                             topLeft: Radius.circular(45),
                             topRight: Radius.circular(45)),
                       ),
-                      height: getHeight(330),
+                      height: getHeight(360),
                       child: Column(
                         children: [
-                          const Center(
-                            child: Icon(
-                              Icons.linear_scale_outlined,
-                              size: 20,
+                          Center(
+                            child: Container(
+                              margin: const EdgeInsets.all(6),
+                              decoration:const  BoxDecoration(
+                                  color: Colors.black87,
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(5))),
+                              height: 5,
+                              width: 40,
                             ),
                           ),
                           Row(
@@ -96,53 +105,19 @@ class _HomeScreenState extends State<HomeScreen> {
                             ],
                           ),
                           const Expanded(child: SizedBox()),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              const Icon(Icons.location_pin,
-                                  color: Colors.white,
-                                  size: 25,
-                                  shadows: [
-                                    BoxShadow(
-                                      spreadRadius: 5,
-                                      color: Colors.black87,
-                                      blurRadius: 10,
-                                    ),
-                                  ]),
-                              InkWell(
-                                child: Container(
-                                    padding: const EdgeInsets.all(4.0),
-                                    decoration: const BoxDecoration(
-                                        color: Colors.white,
-                                        shape: BoxShape.circle,
-                                        boxShadow: [
-                                          BoxShadow(
-                                            spreadRadius: 5,
-                                            color: Colors.black87,
-                                            blurRadius: 10,
-                                          ),
-                                        ]),
-                                    child: Icon(
-                                      Icons.add,
-                                      color: MyColors.SUB_COLOR2,
-                                      size: 50,
-                                    )),
-                              ),
-                              const Icon(Icons.menu_rounded,
-                                  color: Colors.white,
-                                  size: 25,
-                                  shadows: [
-                                    BoxShadow(
-                                      spreadRadius: 5,
-                                      color: Colors.black87,
-                                      blurRadius: 10,
-                                    ),
-                                  ]),
-                            ],
-                          ),
                           const SizedBox(
-                            height: 10,
+                            height: 15,
                           ),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      height: getHeight(360),
+                      child:Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          const SizedBox(),
+                          CustomPainterBottom(),
                         ],
                       ),
                     ),
@@ -174,101 +149,73 @@ class _HomeScreenState extends State<HomeScreen> {
                                         weatherForecast: weartherIndex);
                                   });
                             } else {
-                              return const SizedBox();
+                          //    return const CircularProgressIndicator();
                             }
+
+                            return const CircularProgressIndicator();
                           },
-                        ))
+                        )),
+                    Container(
+                      margin: EdgeInsets.only(top: getHeight(260), bottom: 10),
+                      height: getHeight(80),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          IconButton(
+                            onPressed: () => Navigator.pushNamed(
+                                context, DetailScreen.routeName),
+                            icon: const Icon(Icons.location_pin,
+                                color: Colors.white,
+                                size: 25,
+                                shadows: [
+                                  BoxShadow(
+                                    spreadRadius: 5,
+                                    color: Colors.black87,
+                                    blurRadius: 10,
+                                  ),
+                                ]),
+                          ),
+                          InkWell(
+                            child: Container(
+                                padding: const EdgeInsets.all(4.0),
+                                decoration: const BoxDecoration(
+                                    color: Colors.white,
+                                    shape: BoxShape.circle,
+                                    boxShadow: [
+                                      BoxShadow(
+                                        spreadRadius: 2,
+                                        color: Colors.black87,
+                                        blurRadius: 5,
+                                      ),
+                                    ]),
+                                child: Icon(
+                                  Icons.add,
+                                  color: MyColors.SUB_COLOR2,
+                                  size: 48,
+                                )),
+                          ),
+                          IconButton(
+                            onPressed: () => Navigator.pushNamed(
+                                context, SearchScreen.routeName),
+                            icon: const Icon(Icons.menu_rounded,
+                                color: Colors.white,
+                                size: 25,
+                                shadows: [
+                                  BoxShadow(
+                                    spreadRadius: 5,
+                                    color: Colors.black87,
+                                    blurRadius: 10,
+                                  ),
+                                ]),
+                          )
+                        ],
+                      )
+                    )
                   ],
                 )
               ],
             ),
           )
-        ],
-      ),
-    );
-  }
-}
-
-class FormWeartherForecast extends StatelessWidget {
-  WeatherForecast weatherForecast;
-
-  FormWeartherForecast({Key? key, required this.weatherForecast})
-      : super(key: key);
-
-  bool checkTime(var time) {
-    if (int.parse(time) > 12) {
-      return false;
-    } else {
-      return true;
-    }
-  }
-
-  var weatherImage = MyImages.CLEAR;
-
-  bool checkWeatherImage(var image) {
-    if (image == "clear") {
-      weatherImage = MyImages.CLEAR;
-      return true;
-    } else if (image == "cloudy") {
-      weatherImage = MyImages.CLOUDY;
-      return true;
-    } else if (image == "fast wind") {
-      weatherImage = MyImages.FASTWIND;
-      return true;
-    } else if (image == "mid rain") {
-      weatherImage = MyImages.MIDRAIN;
-      return true;
-    } else if (image == "night") {
-      weatherImage = MyImages.NIGHT;
-      return true;
-    } else if (image == "showers") {
-      weatherImage = MyImages.SHOWER;
-      return true;
-    }
-    return false;
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 45,
-      decoration: BoxDecoration(
-        border: Border.all(color: Colors.white30),
-        borderRadius: const BorderRadius.all(Radius.circular(30)),
-        color: MyColors.PRIMARY_COLOR1,
-        boxShadow: const <BoxShadow>[
-          BoxShadow(
-              spreadRadius: 2,
-              color: Colors.black38,
-              blurRadius: 3,
-              offset: Offset(3, 0.5))
-        ],
-      ),
-      margin: const EdgeInsets.only(right: 10),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          const SizedBox(),
-          Text(
-            checkTime(weatherForecast.time!.substring(11, 13))
-                ? "${weatherForecast.time!.substring(11, 13)}am"
-                : "${int.parse(weatherForecast.time!.substring(11, 13)) - 12}pm",
-            style: const TextStyle(color: Colors.white, fontSize: 11),
-          ),
-          checkWeatherImage(weatherForecast.weatherStateName)
-              ? SizedBox(
-                  width: 25,
-                  child: Image.asset(
-                    weatherImage,
-                    fit: BoxFit.cover,
-                  ),
-                )
-              : SizedBox(),
-          Text(
-            "${weatherForecast.temp!}",
-            style: const TextStyle(color: Colors.white, fontSize: 11),
-          ),
-          const SizedBox(),
         ],
       ),
     );

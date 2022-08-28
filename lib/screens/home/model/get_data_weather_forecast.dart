@@ -4,6 +4,7 @@ import 'models.dart';
 
 class GetDataWeatherForeCast {
   GetDataWeatherForeCast();
+
   Future<List<WeatherForecast>> getData() async {
     final String response =
         await rootBundle.loadString('assets/e2_list_weather_forecast.json');
@@ -11,6 +12,8 @@ class GetDataWeatherForeCast {
     List<WeatherForecast> list = reponseData.map((dto) {
       return WeatherForecast.fromJson(dto);
     }).toList();
-    return list;
+    return Future.delayed(const Duration(seconds: 0), () {
+      return list;
+    });
   }
 }
