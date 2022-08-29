@@ -1,5 +1,5 @@
 class MyImages {
-  static const String BACKGROUND_HOME = 'assets/images/the-blue-sunset-wallpaper.jpg';
+  static const String BACKGROUND_HOME = 'assets/images/background.png';
   static const String CLEAR = 'assets/images/clear.png';
   static const String CLOUDY = 'assets/images/cloudy.png';
   static const String FASTWIND = 'assets/images/fast wind.png';

@@ -4,6 +4,7 @@ import 'package:excersie2/screens/detail/view/detail_screen.dart';
 import 'package:excersie2/screens/home/view/form_weather_forecast.dart';
 import 'package:excersie2/screens/search/view/search_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'custom_painter_bottom.dart';
 
@@ -41,17 +42,27 @@ class _HomeScreenState extends State<HomeScreen> {
                       SizedBox(
                         height: getHeight(115),
                       ),
-                      const Text(
+                       Text(
                         "IKeja",
-                        style: TextStyle(color: Colors.white, fontSize: 20),
+                        style: GoogleFonts.lato(
+                          textStyle: Theme.of(context).textTheme.headline4,
+                          fontSize: 25,
+                          fontWeight: FontWeight.w700,
+                          color: Colors.white
+                        ),
                       ),
-                      const Text(
+                       Text(
                         "19°",
-                        style: TextStyle(color: Colors.white, fontSize: 80),
+                        style: GoogleFonts.roboto(
+                            textStyle: Theme.of(context).textTheme.headline4,
+                            fontSize: 90,
+                            fontWeight: FontWeight.w700,
+                            color: Colors.white
+                        ),
                       ),
                       const Text(
                         "Mostly Clear",
-                        style: TextStyle(color: Colors.white60, fontSize: 14),
+                        style: TextStyle(color: Colors.white70, fontSize: 16),
                       ),
                       const Text(
                         "H:24°  L:18°",
@@ -69,9 +80,21 @@ class _HomeScreenState extends State<HomeScreen> {
                     Container(
                       padding:
                           const EdgeInsets.only(top: 3, right: 18, left: 18),
-                      decoration: BoxDecoration(
-                        color: MyColors.PRIMARY_COLOR1,
-                        borderRadius: const BorderRadius.only(
+                      decoration:const BoxDecoration(
+                        gradient: LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: [
+                            Color.fromRGBO(26, 49, 74, 1),
+                            Color.fromRGBO(18, 81, 83, 1),
+
+                            Color.fromRGBO(26, 49, 74, 1),
+                            Color.fromRGBO(14, 58, 65, 1),
+                            Color.fromRGBO(15, 47, 56, 1),
+                            Color.fromRGBO(15, 47, 56, 1),
+                          ],
+                        ),
+                        borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(45),
                             topRight: Radius.circular(45)),
                       ),
@@ -81,7 +104,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           Center(
                             child: Container(
                               margin: const EdgeInsets.all(6),
-                              decoration:const  BoxDecoration(
+                              decoration: const BoxDecoration(
                                   color: Colors.black87,
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(5))),
@@ -113,7 +136,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                     Container(
                       height: getHeight(360),
-                      child:Column(
+                      child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           const SizedBox(),
@@ -149,68 +172,68 @@ class _HomeScreenState extends State<HomeScreen> {
                                         weatherForecast: weartherIndex);
                                   });
                             } else {
-                          //    return const CircularProgressIndicator();
+                              //    return const CircularProgressIndicator();
                             }
 
                             return const CircularProgressIndicator();
                           },
                         )),
                     Container(
-                      margin: EdgeInsets.only(top: getHeight(260), bottom: 10),
-                      height: getHeight(80),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          IconButton(
-                            onPressed: () => Navigator.pushNamed(
-                                context, DetailScreen.routeName),
-                            icon: const Icon(Icons.location_pin,
-                                color: Colors.white,
-                                size: 25,
-                                shadows: [
-                                  BoxShadow(
-                                    spreadRadius: 5,
-                                    color: Colors.black87,
-                                    blurRadius: 10,
-                                  ),
-                                ]),
-                          ),
-                          InkWell(
-                            child: Container(
-                                padding: const EdgeInsets.all(4.0),
-                                decoration: const BoxDecoration(
-                                    color: Colors.white,
-                                    shape: BoxShape.circle,
-                                    boxShadow: [
-                                      BoxShadow(
-                                        spreadRadius: 2,
-                                        color: Colors.black87,
-                                        blurRadius: 5,
-                                      ),
-                                    ]),
-                                child: Icon(
-                                  Icons.add,
-                                  color: MyColors.SUB_COLOR2,
-                                  size: 48,
-                                )),
-                          ),
-                          IconButton(
-                            onPressed: () => Navigator.pushNamed(
-                                context, SearchScreen.routeName),
-                            icon: const Icon(Icons.menu_rounded,
-                                color: Colors.white,
-                                size: 25,
-                                shadows: [
-                                  BoxShadow(
-                                    spreadRadius: 5,
-                                    color: Colors.black87,
-                                    blurRadius: 10,
-                                  ),
-                                ]),
-                          )
-                        ],
-                      )
-                    )
+                        margin:
+                            EdgeInsets.only(top: getHeight(260), bottom: 10),
+                        height: getHeight(80),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            IconButton(
+                              onPressed: () => Navigator.pushNamed(
+                                  context, DetailScreen.routeName),
+                              icon: const Icon(Icons.location_pin,
+                                  color: Colors.white,
+                                  size: 25,
+                                  shadows: [
+                                    BoxShadow(
+                                      spreadRadius: 5,
+                                      color: Colors.black87,
+                                      blurRadius: 10,
+                                    ),
+                                  ]),
+                            ),
+                            InkWell(
+                              child: Container(
+                                  padding: const EdgeInsets.all(4.0),
+                                  decoration: const BoxDecoration(
+                                      color: Colors.white,
+                                      shape: BoxShape.circle,
+                                      boxShadow: [
+                                        BoxShadow(
+                                          spreadRadius: 3,
+                                          color: Colors.black54,
+                                          blurRadius: 5,
+                                        ),
+                                      ]),
+                                  child: Icon(
+                                    Icons.add,
+                                    color: MyColors.SUB_COLOR2,
+                                    size: 48,
+                                  )),
+                            ),
+                            IconButton(
+                              onPressed: () => Navigator.pushNamed(
+                                  context, SearchScreen.routeName),
+                              icon: const Icon(Icons.menu_rounded,
+                                  color: Colors.white,
+                                  size: 25,
+                                  shadows: [
+                                    BoxShadow(
+                                      spreadRadius: 5,
+                                      color: Colors.black87,
+                                      blurRadius: 10,
+                                    ),
+                                  ]),
+                            )
+                          ],
+                        ))
                   ],
                 )
               ],

@@ -58,11 +58,26 @@ class _SearchScreenState extends State<SearchScreen> {
       child: Scaffold(
         body: Container(
           padding: const EdgeInsets.only(top: 12, left: 10, right: 10),
-          color: MyColors.PRIMARY_COLOR1,
           height: getHeight(812),
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [
+                Color.fromRGBO(56, 70, 88, 1),
+                Color.fromRGBO(29, 41, 66, 1),
+                Color.fromRGBO(39, 56, 73, 1),
+                Color.fromRGBO(35, 35, 74, 1),
+                Color.fromRGBO(33, 24, 58, 1),
+                Color.fromRGBO(21, 23, 44, 1),
+              ],
+            ),
+          ),
           child: Column(
             children: [
-              const SizedBox(height: 10,),
+              const SizedBox(
+                height: 10,
+              ),
               Row(
                 children: [
                   InkWell(
@@ -74,7 +89,7 @@ class _SearchScreenState extends State<SearchScreen> {
                     ),
                   ),
                   const Text(
-                    "Weather",
+                    " Weather",
                     style: TextStyle(color: Colors.white, fontSize: 21),
                   ),
                   const Expanded(child: SizedBox()),
@@ -114,17 +129,30 @@ class _SearchScreenState extends State<SearchScreen> {
                                   filterSearchResults(value);
                                 });
                               },
-                              decoration: const InputDecoration(
-                                  hintStyle: TextStyle(
+                              decoration:  InputDecoration(
+                                  prefixIconConstraints:
+                                      const BoxConstraints(maxWidth: 30),
+                                  filled: true,
+                                  fillColor: const Color.fromRGBO(30, 30, 61, 1),
+                                  hintStyle: const TextStyle(
                                       color: Colors.white54, fontSize: 14),
-                                  contentPadding: EdgeInsets.zero,
+                                  contentPadding:const  EdgeInsets.only(right: 100),
                                   hintText: "Search for a city or airport",
-                                  prefixIcon: Icon(
-                                    Icons.search,
-                                    color: Colors.white54,
-                                    size: 20,
+                                  prefixIcon: Align(
+                                    widthFactor: 1.0,
+                                    heightFactor: 1.0,
+                                    child: Row(
+                                      children: const [
+                                        Text("  "),
+                                        Icon(
+                                          Icons.search,
+                                          color: Colors.white54,
+                                          size: 20,
+                                        ),
+                                      ],
+                                    )
                                   ),
-                                  border: OutlineInputBorder(
+                                  border:const  OutlineInputBorder(
                                       borderRadius: BorderRadius.all(
                                           Radius.circular(10.0)))),
                             ),

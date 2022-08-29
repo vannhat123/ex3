@@ -38,9 +38,9 @@ class FormWeartherForecast extends StatelessWidget {
     return false;
   }
 
-  bool checkBackground(var temp){
-    if(temp !=null){
-      if(temp.toString() == "22.1") {
+  bool checkBackground(var temp) {
+    if (temp != null) {
+      if (temp.toString() == "22.1") {
         return true;
       }
     }
@@ -50,11 +50,13 @@ class FormWeartherForecast extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 45,
+      width: getWidth(50),
       decoration: BoxDecoration(
         border: Border.all(color: Colors.white30),
         borderRadius: const BorderRadius.all(Radius.circular(30)),
-        color: checkBackground(weatherForecast.temp)? Colors.deepPurple :MyColors.PRIMARY_COLOR1,
+        color: checkBackground(weatherForecast.temp)
+            ? Colors.deepPurple
+            : MyColors.PRIMARY_COLOR1,
         boxShadow: const <BoxShadow>[
           BoxShadow(
               spreadRadius: 2,

@@ -1,6 +1,5 @@
 
 import 'package:excersie2/screens/home/view/home_screen.dart';
-import 'package:excersie2/widgets/test.dart';
 import 'package:flutter/material.dart';
 
 import 'const/consts.dart';
@@ -10,6 +9,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
   @override
+  @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -17,9 +17,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-   initialRoute: HomeScreen.routeName,
+  initialRoute: HomeScreen.routeName,
       routes: routes,
-    //  home: MyBookings()
+     //  home: CustomPainterBottom1()
     );
   }
 }

@@ -30,8 +30,8 @@ class FormCity extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(top: 15,left: 5,right: 5),
-      height: getHeight(250),
+      margin:  EdgeInsets.only(top: getWidth(15),left: 5,right: 5),
+      height: getHeight(200),
       decoration: const BoxDecoration(
         borderRadius: BorderRadius.all(Radius.circular(30)),
       ),
@@ -50,7 +50,7 @@ class FormCity extends StatelessWidget {
            ],
          ),
          Container(
-           padding: const EdgeInsets.all(40),
+           padding:  EdgeInsets.all(getWidth(40)),
            child:  Column(
              crossAxisAlignment: CrossAxisAlignment.start,
              mainAxisAlignment: MainAxisAlignment.spaceBetween,
